@@ -1,0 +1,109 @@
+#table1 table {
+
+     border-collapse: collapse;
+
+     font-family: Futura, Arial, sans-serif;
+
+}
+
+#table1 caption {
+
+     font-size: larger;
+
+     margin: 1em auto;
+
+}
+
+#table1 th,td {
+
+     padding: .65em;
+}
+
+#table1 th,td {
+
+     border-bottom: 1px solid #ddd;
+
+   border-top: 1px solid #ddd;
+
+   text-align: center;
+
+}
+#filename{
+    min-width: 180px;
+}
+#fileoperation{
+    min-width: 80px;
+}
+#title{
+    font-family: STKaiti,"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, serif;
+}
+
+.upload-button { /* 按钮美化 */
+	width: 270px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+    font-family: "Microsoft YaHei", serif; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+}
+.upload-button:hover { /* 鼠标移入按钮范围时改变颜色 */
+	background: #5599FF;
+}
+a.titlehref:link { text-decoration: none;color: black}
+a.titlehref:active { text-decoration:blink;color: red}
+a.titlehref:hover { text-decoration:none;color: red}
+a.titlehref:visited { text-decoration: none;color: black}
+a:link { text-decoration: none;color: blue}
+a:active { text-decoration:blink;color: red}
+a:hover { text-decoration:none;color: red}
+a:visited { text-decoration: none;color: purple}
+
+#logout{
+    margin-right: 150px;
+}
+
+body{
+    background-image: url(gugong.jpg)!important;
+    background-position: center bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.mainbox{
+    margin: 0 auto;
+    background:rgba(255,255,255,0.8) !important;
+    width: 80%;
+}
+
+.footer{
+    margin: 0 auto;
+    text-align: center;
+    background:rgba(255,255,255,0.8) !important;
+    width: 80%;
+    bottom: 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #555;
+}
+

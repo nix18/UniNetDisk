@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link REL="STYLESHEET" type="text/css" href="{{ url_for('static', filename='index.css') }}" />
+    <title>登录</title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    {% if loginfail %}
+        <script type="text/javascript">
+        $(document).ready(function(){
+        alert("用户名或密码错误，请重新登录！");
+        })
+        </script>
+    {% endif %}
+</head>
+<body>
+<div class="mainbox">
+    <a href="/" class="titlehref"><h1 align="center" id="title">简洁网盘</h1></a>
+    <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3/>
+        <div align="center">
+            <form method="post">
+                <input type="text" name="username" placeholder="用户名">
+                <br/>
+                <input type="password" name="password" placeholder="密码">
+                <br/>
+                <div align="center">
+                    <br/>
+                    <input type="submit" value="登录">
+                </div>
+            </form>
+            <br/>
+        </div>
+    </div>
+<div class="footer">
+    <h4>简单网盘UniNetDisk v1.0
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/nix18/UniNetDisk">项目开源地址</a>
+    </h4>
+</div>
+</body>
+</html>

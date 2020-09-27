@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link REL="STYLESHEET" type="text/css" href="{{ url_for('static', filename='index.css') }}" />
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    {% if isdel %}
+        <script type="text/javascript">
+        $(document).ready(function(){
+        alert("删除成功！");
+        })
+        </script>
+    {% endif %}
+    {% if isupload==1 %}
+        <script type="text/javascript">
+        $(document).ready(function(){
+        alert("上传成功！");
+        })
+        </script>
+        {% elif isupload==0 %}
+            <script type="text/javascript">
+            $(document).ready(function(){
+            alert("上传失败！");
+            })
+            </script>
+    {% endif %}
+    <title>网盘主页</title>
+</head>
+<body>
+<div class="mainbox">
+    <div><a href="/" class="titlehref"><h1 align="center" id="title">简单网盘</h1></a><div align="right"><a href="{{ url_for('logout') }}" id="logout">登出</a> </div></div>
+    <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3/>
+    <div align="center">
+        <form action="" enctype='multipart/form-data' method='POST'>
+            <input type="file" name="file">
+            <input type="submit" value="上传">
+        </form>
+    </div>
+    <br/>
+    {% if issub %}
+    <div align="center"><a href="{{pre}}" >返回上一级</a>&nbsp;<a href="/">返回首页</a> </div>
+    {% endif %}
+    {% if issub %}
+        <div align="center"><a href="{{url_for('submkdir',dir=curdir)}}" >新建目录</a></div>
+    {% else %}
+        <div align="center"><a href="{{url_for('mkdir')}}" >新建目录</a></div>
+    {% endif %}
+    <table align="center">
+        <tr>
+            <th>
+                文件名
+            </th>
+            <th colspan="2">
+                操作
+            </th>
+        </tr>
+        {% for i in file %}
+            {% if filedict[i]==0 %}
+                <tr>
+                    <td id="filename">
+                        {{i}}
+                    </td>
+                    <td id="fileoperation">
+                        {% if issub %}
+                            <a href="{{url_for("subdownload",dir=curdir,filename=i)}}">下载</a>
+                        {% else %}
+                            <a href="{{url_for("download",filename=i)}}">下载</a>
+                        {% endif %}
+                    </td>
+                    <td id="fileoperation">
+                        {% if issub %}
+                            <a href="{{ url_for("subdelfile",dir=curdir,filename=i,isdr=0) }}"> 删除</a>
+                        {% else %}
+                            <a href="{{ url_for("delfile",filename=i,isdr=0) }}"> 删除</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td id="filename">
+                            {% if curdir %}
+                                <a href="{{ url_for('subdir',dir=curdir+"\\"+i) }}">{{ i }}</a>
+                            {% else %}
+                                <a href="{{ url_for('subdir',dir=i) }}">{{ i }}</a>
+                            {% endif %}
+                    </td>
+                    <td id="fileoperation">
+
+                    </td>
+                    <td id="fileoperation">
+                        {% if issub %}
+                            <a href="{{ url_for("subdelfile",dir=curdir,filename=i,isdr=1) }}"> 删除</a>
+                        {% else %}
+                            <a href="{{ url_for("delfile",filename=i,isdr=1) }}"> 删除</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <br/>
+</div>
+<div class="footer">
+    <h4>简单网盘UniNetDisk v1.0
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/nix18/UniNetDisk">项目开源地址</a>
+    </h4>
+</div>
+</body>
+</html>
