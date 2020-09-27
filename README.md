@@ -46,3 +46,9 @@ Linux测试环境：Ubuntu18.04；Python3.6.9
 
         
 背景图来自：故宫博物院 https://www.dpm.org.cn/light/253561.html
+
+
+# License
+[Apache License 2.0](https://raw.githubusercontent.com/nix18/ShortUrl-SSM/master/LICENSE)
+# 作者博客
+[MoeCola.com](https://moecola.com)
